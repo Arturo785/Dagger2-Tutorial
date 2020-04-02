@@ -3,7 +3,8 @@ package com.example.daggercourse.di
 import android.util.Log
 import javax.inject.Inject
 
-class LocalStore @Inject constructor() {
+//simulating that we don't own the class
+class LocalStore {
 
     private val TAG = "LocalStore"
 
