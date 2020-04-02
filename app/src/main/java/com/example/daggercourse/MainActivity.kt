@@ -3,6 +3,7 @@ package com.example.daggercourse
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.daggercourse.di.ApiService
+import com.example.daggercourse.di.Config
 import com.example.daggercourse.di.LocalStore
 import com.example.daggercourse.di.LoginManager
 import com.example.daggercourse.di.component.DaggerLoginComponent
@@ -15,6 +16,9 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var loginManager: LoginManager
 
+    @Inject
+    lateinit var config: Config
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val loginComponent = DaggerLoginComponent.create()
         loginComponent.inject(this)
         loginManager.login("test","test")
+        loginManager.eneableCache(config)
 
     }
 }
